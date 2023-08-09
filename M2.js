@@ -3,15 +3,12 @@ const amqp = require('amqplib');
 const config = require('./config.json');
 const rabbitMQUrl = config.rabbitMQUrl;
 
-// Функция для обработки задания
 async function processTask(task) {
-  // Обработка запроса
   if (task.type === 'request') {
     console.log('Received request:', task.request);
   }
 
-  // Обработка задания
-  const result = task; // Результатом обработки задания будет само задание
+  const result = task;
 
   return result;
 }
