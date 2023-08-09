@@ -1,0 +1,6 @@
+{
+    "port": 3000,
+    "rabbitMQUrl": "amqp://localhost:5672",
+    "taskQueue": "task_queue",
+    "resultQueue": "result_queue"
+  }
