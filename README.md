@@ -8,7 +8,7 @@
 ```npm install express body-parser amqplib```</br>
 5. Create configuration files for microservices M1 and M2. You can use the example configuration files config.json in the project folder.</br>
 6. Start microservice M1.</br>
-[code]node M1.js[/code]</br>
+```node M1.js```</br>
 7. Start microservice M2.</br>
 ```node M2.js```</br>
 
