@@ -8,7 +8,7 @@
 [code=bash]npm install express body-parser amqplib[/code]</br>
 5. Create configuration files for microservices M1 and M2. You can use the example configuration files config.json in the project folder.</br>
 6. Start microservice M1.</br>
-[code=bash]node M1.js[/code]</br>
+[code]node M1.js[/code]</br>
 7. Start microservice M2.</br>
-8. [code=bash]node M2.js[/code]</br>
+8. [code]node M2.js[/code]</br>
 Your project should now be successfully deployed on your local machine and ready to handle asynchronous HTTP requests. To send a request just go to http://localhost:3000/ in your browser.
