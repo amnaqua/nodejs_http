@@ -8,7 +8,6 @@ app.use(bodyParser.json());
 const config = require('./config.json');
 const rabbitMQUrl = config.rabbitMQUrl;
 
-// Middleware для логирования
 app.use((req, res, next) => {
   console.log(`Received HTTP request: ${req.method} ${req.url}`);
   next();
@@ -16,7 +15,7 @@ app.use((req, res, next) => {
 
 app.post('/', async (req, res) => {
   try {
-    const requestPayload = req.body; // Предполагается, что тело запроса содержит данные задания
+    const requestPayload = req.body;
 
     const connection = await amqp.connect(rabbitMQUrl);
     const channel = await connection.createChannel();
@@ -24,7 +23,6 @@ app.post('/', async (req, res) => {
     await channel.assertQueue(config.taskQueue);
     await channel.sendToQueue(config.taskQueue, Buffer.from(JSON.stringify(requestPayload)));
 
-    // Ожидание результата обработки задания
     channel.consume(config.resultQueue, (msg) => {
       const result = JSON.parse(msg.content.toString());
       res.status(200).json(result);
